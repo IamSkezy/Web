@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>МВД по г. Нижний Новгород</title>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-img">
+                <img src="img/logo.jpg">
+            </div>
+            <div class="header-title">
+                <span>Управление МВД России по городу Нижнему Новгороду</span>
+            </div>
+            <div class="header-img">
+                <img src="img/map_obl.png">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-content">
+            <div class="menu">
+                <div class="menu-item">
+                    <a href="index.php">
+                        <i class='bx bx-home' ></i>
+                        <span>Главная</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a href="vacancies.html">
+                        <i class='bx bx-male-female' ></i>
+                        <span>Вакансии</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a href="about-us.html">
+                        <i class='bx bx-help-circle' ></i>
+                        <span>О нас</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a href="contacts.html">
+                        <i class='bx bxs-contact' ></i>
+                        <span>Контакты</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a href="map-obl.html">
+                        <i class='bx bxs-map' ></i>
+                        <span>Карта</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="toggle-menu hidden" onclick="Menu()">
+                <i class='bx bx-menu' ></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="map-obl-content">
+            <span class="container-title">Карта области:</span>
+            <div class="map-obl-img">
+                <img src="img/map_obl.png">
+            </div>
+            <span class="container-title">Контакты ОВД:</span>
+            <div class="map-obl-info">
+                <div class="map-obl-item">
+                    <span class="item-title">Управление МВД России по г. Н. Новгороду</span>
+                    <span class="item-address">Адрес: 603024, г. Нижний Новгород, ул. Б. Печерская, д.93</span>
+                    <span class="item-phone">Телефон ДЧ: 8(831) 268-61-11, 268-61-10</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции №1 Управления МВД России по г. Н. Новгороду (Автозаводский район)</span>
+                    <span class="item-address">Адрес: 603083, г.Н.Новгород, ул. Смирнова, д.59</span>
+                    <span class="item-phone">Телефон ДЧ: 8(831) 268-41-02, 268-41-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции №2 Управления МВД России по г. Н. Новгороду (Канавинский район)</span>
+                    <span class="item-address">Адрес: 603002, г.Н.Новгород, ул. Ивана Романова, д.3</span>
+                    <span class="item-phone">Телефон ДЧ: 8(831) 268-42-02, 268-42-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции №3 Управления МВД России по г. Н. Новгороду (Ленинский район)</span>
+                    <span class="item-address">Адрес: 603076, г.Н.Новгород, ул.Чугунова, д.3</span>
+                    <span class="item-phone">Телефон ДЧ: 8(831) 268-43-02, 268-43-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции №4 Управления МВД России по г. Н. Новгороду (Московский район)</span>
+                    <span class="item-address">Адрес: 603014, г.Н.Новгород, ул. Страж Революции, д.14</span>
+                    <span class="item-phone">Телефон ДЧ: 8(831) 268-44-02, 268-44-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции № 5 Управления МВД России по г. Н. Новгороду (Нижегородский район)</span>
+                    <span class="item-address">Адрес: 603001, г.Н.Новгород, ул. Н-В. Набережная, д.12</span>
+                    <span class="item-phone">Телефон: 8(831) 268-45-02, 268-45-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции № 6 Управления МВД России по г. Н. Новгороду (Приокский район)</span>
+                    <span class="item-address">Адрес: 603009, г.Н.Новгород, ул. Горная, д. 3</span>
+                    <span class="item-phone">Телефон: 8(831) 268-46-02, 268-46-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции № 7 Управления МВД России по г. Н. Новгороду (Советский район)</span>
+                    <span class="item-address">Адрес: 603146, г.Н.Новгород, ул. Бекетова, д.75а</span>
+                    <span class="item-phone">Телефон: 8(831) 268-47-02, 268-47-00</span>
+                </div>
+
+                <div class="map-obl-item">
+                    <span class="item-title">Отдел полиции № 8 Управления МВД России по г. Н. Новгороду (Сормовский район)</span>
+                    <span class="item-address">Адрес: 603003, г.Н.Новгород, ул. Васенко, д.5 </span>
+                    <span class="item-phone">Телефон: 8(831) 268-48-02, 268-48-00</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>Управление МВД России по городу Нижнему Новгороду</span>
+            <span><i class='bx bx-copyright'></i> 2022, cайт создан Ануфриевым Дмитрием и Михаилом Волковым</span>
+        </div>
+    </footer>
+
+    <script src="scripts/menu.js"></script>
+</body>
+</html>
