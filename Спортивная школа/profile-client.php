@@ -1,5 +1,7 @@
+// Создание сессии
 <?php
 session_start();
+// Проверка на роль пользователя
 if (!$_SESSION['user']['client_id']) {
     header('Location: /');
 }
@@ -24,6 +26,7 @@ if (!$_SESSION['user']['client_id']) {
     <link rel="shortcut icon" href="resourses/logo-gym.png" type="image/x-icon">
 </head>
 <body>
+    // Меню
     <nav class="responsive-menu">
         <div class="menu">
             <div class="menu-items">
@@ -71,7 +74,8 @@ if (!$_SESSION['user']['client_id']) {
 
         </div>
     </nav>
-
+    
+    // Профиль
     <div class="container">
         <div class="container-title">
             <span>Ваш <em>профиль</em></span>
@@ -90,6 +94,7 @@ if (!$_SESSION['user']['client_id']) {
                         <div class="account-title">
                             <span>Информация</span>
                         </div>
+                        // Вывод информации о пользователе из сессии
                         <span>ФИО:<p class="account-name"><?= $_SESSION['user']['client_name'] ?></p></span>
                         <span>Email:<p class="account-email"><?= $_SESSION['user']['client_email'] ?></p></span>
                         <span>Адрес:<p class="account-address"><?= $_SESSION['user']['client_address'] ?></p></span>
@@ -105,7 +110,8 @@ if (!$_SESSION['user']['client_id']) {
             </div>
         </div>
     </div>
-
+    
+    // Расписание
     <section class="section">
         <div class="container" id="schedule">
             <div class="container-title-white">
@@ -131,6 +137,7 @@ if (!$_SESSION['user']['client_id']) {
                     <div class="schedule-items">
                         <div class="schedule-item active-schedule-item" id="monday">
                             <table>
+                                // Вывод данных о расписание из БД
                                 <?php
                                     require('vendor/connect.php');
                                     $sql_courses_schedule = $link->query("SELECT courses.course_name, schedules.schedule_time, schedules.schedule_cost, trainers.trainer_name FROM `schedules`, `trainers`, `courses` WHERE schedules.day_id = '1' AND schedules.trainer_id = trainers.trainer_id AND schedules.course_id = courses.course_id;");
@@ -150,6 +157,7 @@ if (!$_SESSION['user']['client_id']) {
 
                         <div class="schedule-item" id="tuesday">
                             <table>
+                                // Вывод данных о расписание из БД
                                 <?php
                                     require('vendor/connect.php');
                                     $sql_courses_schedule = $link->query("SELECT courses.course_name, schedules.schedule_time, schedules.schedule_cost, trainers.trainer_name FROM `schedules`, `trainers`, `courses` WHERE schedules.day_id = '2' AND schedules.trainer_id = trainers.trainer_id AND schedules.course_id = courses.course_id;");
@@ -169,6 +177,7 @@ if (!$_SESSION['user']['client_id']) {
 
                         <div class="schedule-item" id="wednesday">
                             <table>
+                                // Вывод данных о расписание из БД
                                 <?php
                                     require('vendor/connect.php');
                                     $sql_courses_schedule = $link->query("SELECT courses.course_name, schedules.schedule_time, schedules.schedule_cost, trainers.trainer_name FROM `schedules`, `trainers`, `courses` WHERE schedules.day_id = '3' AND schedules.trainer_id = trainers.trainer_id AND schedules.course_id = courses.course_id;");
@@ -188,6 +197,7 @@ if (!$_SESSION['user']['client_id']) {
 
                         <div class="schedule-item" id="thursday">
                             <table>
+                                // Вывод данных о расписание из БД
                                 <?php
                                     require('vendor/connect.php');
                                     $sql_courses_schedule = $link->query("SELECT courses.course_name, schedules.schedule_time, schedules.schedule_cost, trainers.trainer_name FROM `schedules`, `trainers`, `courses` WHERE schedules.day_id = '4' AND schedules.trainer_id = trainers.trainer_id AND schedules.course_id = courses.course_id;");
@@ -207,6 +217,7 @@ if (!$_SESSION['user']['client_id']) {
 
                         <div class="schedule-item" id="friday">
                             <table>
+                                // Вывод данных о расписание из БД
                                 <?php
                                     require('vendor/connect.php');
                                     $sql_courses_schedule = $link->query("SELECT courses.course_name, schedules.schedule_time, schedules.schedule_cost, trainers.trainer_name FROM `schedules`, `trainers`, `courses` WHERE schedules.day_id = '5' AND schedules.trainer_id = trainers.trainer_id AND schedules.course_id = courses.course_id;");
@@ -228,7 +239,8 @@ if (!$_SESSION['user']['client_id']) {
             </div>
         </div>
     </section>
-
+    
+    // Информация о курсах
     <div class="container">
         <div class="container-title">
             <span>Ваши <em>курсы</em></span>
@@ -242,6 +254,7 @@ if (!$_SESSION['user']['client_id']) {
                     <span>Вы записаны на следующие курсы:</span>
                 </div>
                 <div class="course-list">
+                    // Вывод данных о записанных курсах из БД
                     <?php
                         require('vendor/connect.php');
                         $client_id = $_SESSION['user']['client_id'];
@@ -275,6 +288,7 @@ if (!$_SESSION['user']['client_id']) {
                 <div class="field course-field">
                     <select class="input-field section-course" name="course-add" required>
                         <option disabled value="" selected>Выберите желаемый курс</option>
+                        // Вывод курсов из БД
                         <?php
                             require('vendor/connect.php');
                             $sql_courses = $link->query("SELECT * FROM `courses`");
@@ -286,7 +300,8 @@ if (!$_SESSION['user']['client_id']) {
                         ?>
                       </select>
                 </div>
-
+                
+                // Ответ пользователю об ошибке или удаче
                 <div class="request-status">
                     <?php
                         if($_SESSION['request-status-course-client-add']) {
@@ -315,6 +330,7 @@ if (!$_SESSION['user']['client_id']) {
                 <div class="field course-field">
                     <select class="input-field section-course" name="course-delete" required>
                         <option disabled value="" selected>Выберите курс</option>
+                        // Вывод из БД данных о курсов
                         <?php
                             require('vendor/connect.php');
                             $sql_courses = $link->query("SELECT * FROM `courses`");
@@ -328,6 +344,7 @@ if (!$_SESSION['user']['client_id']) {
                 </div>
 
                 <div class="request-status">
+                    // Ответ пользователю об ошибке или удаче
                     <?php
                         if($_SESSION['request-status-course-client-delete']) {
                             echo '<i class="bx bx-message-rounded-check"></i><p class="request-success">' . $_SESSION['request-status-course-client-delete'] .'</p>';
@@ -356,7 +373,8 @@ if (!$_SESSION['user']['client_id']) {
                     <span>Вы получили следующие достижения:</span>
                 </div>
                 <div class="achievement-list">
-
+                
+                 // Вывод информации о достижениях из БД
                 <?php
                     require('vendor/connect.php');
                     $client_id = $_SESSION['user']['client_id'];
@@ -389,6 +407,8 @@ if (!$_SESSION['user']['client_id']) {
                     <span>Вы получили следующие сообщения:</span>
                 </div>
                 <div class="message-list">
+                    
+                 // Вывод сообщений из БД
                 <?php
                     require('vendor/connect.php');
                     $client_id = $_SESSION['user']['client_id'];
@@ -407,7 +427,8 @@ if (!$_SESSION['user']['client_id']) {
 
                 <div>
                     <form action="vendor/clearmessageclient.php" method="post">
-
+                        
+                        // Ответ пользователю об ошибке или удаче
                         <div class="request-status">
                             <?php
                                 if($_SESSION['request-status-delete-mes']) {
@@ -438,6 +459,7 @@ if (!$_SESSION['user']['client_id']) {
                 <div class="field course-field">
                     <select class="input-field section-trainer" name="trainer-name" required>
                         <option disabled value="" selected>Выберите тренера:</option>
+                        // Вывод информации о тренерах из БД
                         <?php
                             require('vendor/connect.php');
                             $sql_trainers = $link->query("SELECT * FROM `trainers`");
@@ -457,7 +479,8 @@ if (!$_SESSION['user']['client_id']) {
                 <div class="input-field">
                     <input type="text" class="admin-input" placeholder="Введите сообщение:" name="message" required>
                 </div>
-
+                
+                // Ответ пользователю об ошибке или удаче
                 <div class="request-status">
                     <?php
                         if($_SESSION['request-status-mes-add-client']) {
