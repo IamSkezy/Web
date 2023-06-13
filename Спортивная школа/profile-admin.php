@@ -90,12 +90,14 @@ if (!$_SESSION['user']['admin_id']) {
                         <div class="account-title">
                             <span>Информация</span>
                         </div>
+                        // Вывод информации
                         <span>ФИО:<p class="account-name"><?= $_SESSION['user']['admin_name'] ?></p></span>
                         <span>Email:<p class="account-email"><?= $_SESSION['user']['admin_email'] ?></p></span>
                         <span>Адрес:<p class="account-address"><?= $_SESSION['user']['admin_address'] ?></p></span>
                         <span>Телефон:<p class="account-phone"><?= $_SESSION['user']['admin_phone'] ?></p></span>
                         
                         <div class="account-logout">
+                            // Выход с аккаунта
                             <form action="vendor/logout.php" method="post">
                                 <input type="submit" value="Выход">
                             </form>
