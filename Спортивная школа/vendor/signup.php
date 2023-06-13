@@ -3,7 +3,7 @@
 
     session_start();
     require_once 'connect.php';
-
+    // Получение данных
     $login = trim($_POST['login']);
     $password = trim($_POST['password']);
     $password_confirm = trim($_POST['password-confirm']);
@@ -17,9 +17,11 @@
     $second_name = trim($_POST['secondname']);
 
     $full_name = $surname . " " . $name . " " . $second_name;
-
+    // Валидация на пароль
     if($password === $password_confirm) {
+        // Валидация на пустые значения
         if(!empty($login) && !empty($password) && !empty($password_confirm) && !empty($email) && !empty($address) && !empty($phone) && !empty($surname) && !empty($surname) && !empty($name) && !empty($second_name)){
+            // Регистрация
             mysqli_query($link, "INSERT INTO `clients` (`client_id`, `client_name`, `client_email`, `client_address`, `client_phone`, `client_login`, `client_password`) VALUES (NULL, '$full_name', '$email', '$address', '$phone', '$login', '$password')");
             $_SESSION['reg-message-singup'] = 'Вы успешно зарегистрировались!'; 
             header('Location: ../auth.php');
