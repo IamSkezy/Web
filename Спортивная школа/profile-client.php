@@ -264,6 +264,7 @@ if (!$_SESSION['user']['client_id']) {
                         foreach($check_course_and_client_data as $course_client_data) :
                             
                     ?>
+                    // Вывод данных через foreach
                     <span>Название курса: </span><span class="course-name"><?php echo ($course_client_data['course_name']);?></span><br>
                     <span>Время проведения: </span><span class="course-time"><?php echo ($course_client_data['course_time']);?></span><br>
                     <span>Стоимость курса: </span><span class="course-cost"><?php echo ($course_client_data['course_cost']);?></span><br>
