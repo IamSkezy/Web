@@ -3,16 +3,17 @@
 
     session_start();
     require_once 'connect.php';
-
+    // Получение данных
     $name = trim($_POST['client-name']);
-
+    // Запрос к БД
     $check_client_info = mysqli_query($link, "SELECT * FROM `clients` WHERE `client_name` = '$name'");
-
+    // Валидация
     if(!empty($name)){
+        // Если клиент найден
         if(mysqli_num_rows($check_client_info) > 0) {
-
+     
             $client_info = mysqli_fetch_assoc($check_client_info);
-
+            // Создание сессии
             $_SESSION['client_info'] = [
                 "client_id" => $client_info['client_id'],
                 "client_name" => $client_info['client_name'],
