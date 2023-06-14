@@ -4,11 +4,11 @@
 
     session_start();
     require_once 'connect.php';
-
+    // Получение данных
     $trainer_id = trim($_POST['id']);
     $name = $_POST['data-change'];
     $data = trim($_POST['change-info']);
-
+    // Условие для отправки корректного запроса к БД
     if($name == 'ФИО') {
         $name = 'trainer_name';
     }
@@ -36,8 +36,9 @@
     elseif ($name == 'Путь к фото'){
         $name = 'trainer_src';
     }
-
+    // Валидация данных
     if(!empty($name) && !empty($trainer_id) && !empty($data)){
+        // Изменение информации тренера
         mysqli_query($link, "UPDATE `trainers` SET $name = '$data' WHERE `trainer_id` = '$trainer_id';");
         $_SESSION['request-status-change-trainer'] = 'Успешно!'; 
         header('Location: ../profile-admin.php');
