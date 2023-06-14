@@ -3,16 +3,17 @@
 
     session_start();
     require_once 'connect.php';
-
+    // Получение данных
     $name = trim($_POST['course-name']);
-
+    // Запрос к БД
     $check_course_info = mysqli_query($link, "SELECT * FROM `courses` WHERE `course_name` = '$name'");
-
+    // Валидация
     if(!empty($name)){
+        // Если курс найден
         if(mysqli_num_rows($check_course_info) > 0) {
 
             $course_info = mysqli_fetch_assoc($check_course_info);
-
+            // Создание сессии
             $_SESSION['course_info'] = [
                 "course_id" => $course_info['course_id'],
                 "course_name" => $course_info['course_name'],
